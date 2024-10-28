@@ -1,7 +1,26 @@
 {
-    "files": [],
-    "references": [
-        { "path": "./tsconfig.app.json" },
-        { "path": "./tsconfig.node.json" }
-    ]
+    "compilerOptions": {
+        "target": "esnext",
+        "declaration": true,
+        "composite": true,
+        "outDir": "dist",
+        "declarationDir": "dist",
+        "allowJs": true,
+        "allowSyntheticDefaultImports": true,
+        "forceConsistentCasingInFileNames": true,
+        "noFallthroughCasesInSwitch": true,
+        "baseUrl": ".",
+        "paths": {
+            "@/*": ["./src/*"]
+        },
+        "moduleResolution": "Bundler"
+    },
+    "include": [
+        "vite.config.ts",
+        "env.d.ts",
+        "src/**/*.vue",
+        "src/**/*.ts",
+        "src/vite-env.d.ts"
+    ],
+    "exclude": ["src/App.vue", "src/main.ts"]
 }
