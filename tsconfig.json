@@ -1,26 +1,17 @@
 {
     "compilerOptions": {
         "target": "esnext",
+        "module": "esnext",
+        "moduleResolution": "node",
         "declaration": true,
-        "composite": true,
+        "emitDeclarationOnly": true,
         "outDir": "dist",
-        "declarationDir": "dist",
-        "allowJs": true,
-        "allowSyntheticDefaultImports": true,
-        "forceConsistentCasingInFileNames": true,
-        "noFallthroughCasesInSwitch": true,
-        "baseUrl": ".",
-        "paths": {
-            "@/*": ["./src/*"]
-        },
-        "moduleResolution": "Bundler"
+        "jsx": "preserve",
+        "strict": true,
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true
     },
-    "include": [
-        "vite.config.ts",
-        "env.d.ts",
-        "src/**/*.vue",
-        "src/**/*.ts",
-        "src/vite-env.d.ts"
-    ],
+    "include": ["src/**/*"],
     "exclude": ["src/App.vue", "src/main.ts"]
 }

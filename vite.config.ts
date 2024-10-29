@@ -2,25 +2,13 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import typescript from '@rollup/plugin-typescript'
 
-// https://vitejs.dev/config/
 export default defineConfig({
-    plugins: [
-        vue(),
-        typescript({
-            declaration: true,
-            declarationDir: 'dist',
-            compilerOptions: { lib: ['es5', 'es6', 'dom'], target: 'es6' },
-            emitDeclarationOnly: true,
-            declarationMap: true,
-        }),
-    ],
+    plugins: [vue()],
     build: {
         lib: {
-            entry: './src/index.ts',
-            name: 'quickShortcuts',
-            // the proper extensions will be added
-            fileName: 'quick-shortcuts',
-            formats: ['es', 'cjs', 'umd'],
+            entry: 'src/index.ts',
+            name: 'QuickShortcuts',
+            fileName: (format) => `quick-shortcuts.${format}.js`,
         },
         rollupOptions: {
             external: ['vue'],
@@ -30,5 +18,14 @@ export default defineConfig({
                 },
             },
         },
+        // @ts-expect-error
+        plugins: [
+            typescript({
+                tsconfig: './tsconfig.json',
+                declaration: true,
+                declarationDir: 'dist/types',
+                rootDir: 'src',
+            }),
+        ],
     },
 })
