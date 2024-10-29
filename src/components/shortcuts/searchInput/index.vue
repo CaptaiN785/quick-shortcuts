@@ -1,16 +1,10 @@
 <script setup lang="ts">
-import {
-    defineProps,
-    HTMLAttributes,
-    computed,
-    useTemplateRef,
-    onMounted,
-    defineEmits,
-} from 'vue'
+import { HTMLAttributes, computed, onMounted, ref } from 'vue'
 
-const searchInputRef = useTemplateRef('searchInputRef')
+const searchInputRef = ref<HTMLElement | null>()
 
-const { searchStyle } = defineProps<{
+const { searchStyle, modelValue } = defineProps<{
+    modelValue: string
     searchStyle: {
         searchTextColor: string
         searchTextFontSize: string
@@ -19,12 +13,12 @@ const { searchStyle } = defineProps<{
     }
 }>()
 
-const emit = defineEmits([
-    'update:modelValue',
-    'up-arrow-pressed',
-    'down-arrow-pressed',
-    'enter-pressed',
-])
+const emit = defineEmits<{
+    (e: 'update:modelValue', value: string): void
+    (e: 'up-arrow-pressed'): void
+    (e: 'down-arrow-pressed'): void
+    (e: 'enter-pressed'): void
+}>()
 
 const {
     searchTextColor,
@@ -32,8 +26,6 @@ const {
     searchPlaceholder,
     searchPlaceholderColor,
 } = searchStyle
-
-const value = defineModel()
 
 const inputStyle = computed<HTMLAttributes['style']>(() => ({
     color: searchTextColor,
@@ -54,7 +46,8 @@ onMounted(() => {
 })
 
 function inputChange(e: Event) {
-    emit('update:modelValue', (e.target as HTMLInputElement)?.value)
+    const newValue = (e.target as HTMLInputElement)?.value ?? ''
+    emit('update:modelValue', newValue)
 }
 
 const tabPressed = (e: Event) => {
@@ -84,7 +77,7 @@ const enterPressed = (e: Event) => {
     <div class="qs-dialog-searchbar">
         <div :style="prefixStyle" class="qs-dialog-searchbar-prefix"></div>
         <input
-            :value="value"
+            :value="modelValue"
             ref="searchInputRef"
             @input="inputChange"
             :style="inputStyle"

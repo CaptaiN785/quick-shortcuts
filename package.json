@@ -18,7 +18,8 @@
     "exports": {
         ".": {
             "import": "./dist/quick-shortcuts.es.js",
-            "require": "./dist/quick-shortcuts.umd.cjs"
+            "require": "./dist/quick-shortcuts.umd.cjs",
+            "types": "./dist/types/index.d.ts"
         },
         "./dist/style.css": {
             "import": "./dist/style.css",

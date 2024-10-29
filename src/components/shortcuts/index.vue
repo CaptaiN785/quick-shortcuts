@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, onUnmounted, ref } from 'vue'
+import { onMounted, onScopeDispose, onUnmounted, onUpdated, ref } from 'vue'
 import ShortcutsDialog from './ShortcutsDialog.vue'
 import { SearchAlgoType } from '../../types/props'
 import { StyleProp } from '../../types/styles'
@@ -30,12 +30,23 @@ function keyboardListeners(e: KeyboardEvent) {
     }
 }
 
-onMounted(() => {
+function addKeyboardListener() {
     window.addEventListener('keydown', keyboardListeners)
+}
+
+function removeKeyboardListener() {
+    window.removeEventListener('keydown', keyboardListeners)
+}
+
+onMounted(() => {
+    addKeyboardListener()
 })
 
 onUnmounted(() => {
-    window.removeEventListener('keydown', keyboardListeners)
+    removeKeyboardListener()
+})
+onScopeDispose(() => {
+    removeKeyboardListener()
 })
 
 const emit = defineEmits<{

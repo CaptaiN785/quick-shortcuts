@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, defineProps, HTMLAttributes } from 'vue'
+import { computed, HTMLAttributes } from 'vue'
 import { TitleProps } from '../../types/props'
 
 const { title, titleStyle } = defineProps<TitleProps>()

@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { Option } from '../../../types/options'
-import { computed, HTMLAttributes, useTemplateRef, watch } from 'vue'
+import { computed, HTMLAttributes, ref, watch } from 'vue'
 
-const optionItemRef = useTemplateRef('optionItemRef')
+const optionItemRef = ref<HTMLElement | null>()
 
 const { option, optionsStyle, isHovered } = defineProps<{
     option: Option & { isChild?: boolean }
@@ -84,7 +84,7 @@ watch(isReallyHovered, (newValue: boolean) => {
 
 <style>
 .qs-options-item {
-    padding: 0.5rem;
+    padding: 0.5rem 0.8rem;
     display: flex;
     gap: 0.5rem;
     align-items: center;

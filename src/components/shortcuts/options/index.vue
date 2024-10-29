@@ -1,12 +1,5 @@
 <script setup lang="ts">
-import {
-    computed,
-    defineProps,
-    defineExpose,
-    ref,
-    watch,
-    defineEmits,
-} from 'vue'
+import { computed, ref, watch } from 'vue'
 import { Option } from '../../../types/options'
 import OptionItem from './OptionItem.vue'
 import { isOptionValid } from '../composables/SearchFunctions'
@@ -89,6 +82,7 @@ function clickOptionItem(index: number) {
         0,
         Math.min(index, allOptions.value.length - 1),
     )
+    if (allOptions.value[selectedIndex].isDisabled) return
     emit('select', allOptions.value[selectedIndex])
 }
 
@@ -132,16 +126,25 @@ watch(allOptionsLength, (newVal, oldVal) => {
             :items="allOptions"
             :item-size="64"
             key-field="id"
-            v-slot="{ item: option, index }"
         >
-            <OptionItem
-                :key="option.id"
-                :option="option"
-                :optionsStyle="optionsStyle"
-                :isHovered="index === hoveredItem"
-                @mouseover="($event) => hoverItem(index, $event)"
-                @click="clickOptionItem(index)"
-            />
+            <template v-slot="{ item: option, index }">
+                <OptionItem
+                    :key="option.id"
+                    :option="option"
+                    :optionsStyle="optionsStyle"
+                    :isHovered="index === hoveredItem"
+                    @mouseover="($event) => hoverItem(index, $event)"
+                    @click="clickOptionItem(index)"
+                />
+            </template>
+            <template #empty>
+                <div
+                    class="qs-no-results"
+                    :style="{ color: optionsStyle.optionTextColor }"
+                >
+                    No results
+                </div>
+            </template>
         </RecycleScroller>
     </div>
 </template>
@@ -158,5 +161,9 @@ watch(allOptionsLength, (newVal, oldVal) => {
 }
 .qs-options-list li:not(:last-child) {
     margin-bottom: 0.25rem;
+}
+.qs-no-results {
+    padding: 1rem;
+    text-align: center;
 }
 </style>

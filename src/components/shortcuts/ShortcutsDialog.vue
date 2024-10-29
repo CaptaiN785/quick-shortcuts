@@ -9,7 +9,7 @@ import Options from './options/index.vue'
 import { StyleProp } from '../../types/styles'
 
 const searchQuery = ref<string>('')
-const qsOptionRef = useTemplateRef('qsOptionRef')
+const qsOptionRef = useTemplateRef<typeof Options | null>('qsOptionRef')
 
 const { options, searchAlgoType, customStyles } = defineProps<{
     options: Option[]
@@ -33,6 +33,8 @@ const dialogStyles = computed<HTMLAttributes['style']>(() => ({
     borderRadius:
         customStyles.dialogBorderRadius ?? defaultStyle.dialogBorderRadius,
     zIndex: customStyles.dialogZIndex ?? defaultStyle.dialogZIndex,
+    height: customStyles.dialogHeight ?? defaultStyle.dialogHeight,
+    width: customStyles.dialogWidth ?? defaultStyle.dialogWidth,
 }))
 
 const titleStyle = computed<TitleStyle>(() => ({
@@ -91,8 +93,8 @@ watch(isVisible, () => {
 </script>
 
 <template>
-    <Teleport to="body" v-if="isVisible">
-        <div :style="dialogStyles" class="qs-shortcuts-dialog">
+    <Teleport to="body">
+        <div v-if="isVisible" :style="dialogStyles" class="qs-shortcuts-dialog">
             <Title title="Main title" :titleStyle="titleStyle" />
             <SearchInput
                 v-model="searchQuery"
@@ -117,8 +119,6 @@ watch(isVisible, () => {
 .qs-shortcuts-dialog {
     position: fixed;
     padding: 0.75rem;
-    width: 600px;
-    height: 400px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);

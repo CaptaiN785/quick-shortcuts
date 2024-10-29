@@ -4,6 +4,8 @@ export type Style = {
     dialogShadowColor: string
     dialogBorderRadius: string
     dialogZIndex: number
+    dialogHeight: string
+    dialogWidth: string
 
     // Title
     titleColor: string

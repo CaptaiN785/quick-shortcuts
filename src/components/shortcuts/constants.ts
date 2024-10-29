@@ -6,6 +6,8 @@ export const defaultStyle: Style = {
     dialogShadowColor: 'rgba(0, 0, 0, 0.5)',
     dialogBorderRadius: '0.75rem',
     dialogZIndex: 3000,
+    dialogHeight: '400px',
+    dialogWidth: '600px',
 
     // Title
     titleColor: 'white',
