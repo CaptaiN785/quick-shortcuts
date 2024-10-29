@@ -1,1 +1,4 @@
-declare module 'quick-shortcuts';
+declare module 'quick-shortcuts' {
+    const content: any
+    export default content
+}

@@ -1,7 +1,7 @@
 {
     "name": "quick-shortcuts",
     "private": false,
-    "version": "1.0.5",
+    "version": "1.0.6",
     "type": "module",
     "scripts": {
         "dev": "vite",
@@ -17,7 +17,7 @@
     ],
     "exports": {
         ".": {
-            "import": "./dist/quick-shortcuts.js",
+            "import": "./dist/quick-shortcuts.es.js",
             "require": "./dist/quick-shortcuts.umd.cjs"
         },
         "./dist/style.css": {
