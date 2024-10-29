@@ -11,7 +11,7 @@ import { StyleProp } from '../../types/styles'
 const searchQuery = ref<string>('')
 const qsOptionRef = useTemplateRef<typeof Options | null>('qsOptionRef')
 
-const { options, searchAlgoType, customStyles } = defineProps<{
+const { options, searchAlgoType, customStyles, visible } = defineProps<{
     options: Option[]
     searchAlgoType: SearchAlgoType
     customStyles: StyleProp
@@ -94,7 +94,7 @@ watch(isVisible, () => {
 
 <template>
     <Teleport to="body">
-        <div v-if="isVisible" :style="dialogStyles" class="qs-shortcuts-dialog">
+        <div v-if="visible" :style="dialogStyles" class="qs-shortcuts-dialog">
             <Title title="Main title" :titleStyle="titleStyle" />
             <SearchInput
                 v-model="searchQuery"

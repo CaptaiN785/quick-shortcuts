@@ -29,6 +29,8 @@ export const isOptionValid = (
     searchQuery: string,
     searchAlgoType: SearchAlgoType,
 ) => {
+    if (!option.isVisible) return false
+
     if (searchAlgoType === 'word-break') {
         return workBreakStringMatching(option, searchQuery)
     } else {
