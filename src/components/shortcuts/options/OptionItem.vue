@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Option } from '../types/options'
+import { Option } from '../../../types/options'
 import { computed, HTMLAttributes, useTemplateRef, watch } from 'vue'
 
 const optionItemRef = useTemplateRef('optionItemRef')

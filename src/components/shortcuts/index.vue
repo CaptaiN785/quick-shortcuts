@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { onMounted, onUnmounted, ref } from 'vue'
 import ShortcutsDialog from './ShortcutsDialog.vue'
-import { SearchAlgoType } from './types/props'
-import { StyleProp } from './types'
+import { SearchAlgoType } from '../../types/props'
+import { StyleProp } from '../../types/styles'
 import { defaultStyle } from './constants'
-import { Option } from './types/options'
+import { Option } from '../../types/options'
 
 const isEnabled = ref<boolean>(false)
 

@@ -1,5 +1,5 @@
-import { Option } from '../types/options'
-import { SearchAlgoType } from '../types/props'
+import { Option } from '../../../types/options'
+import { SearchAlgoType } from '../../../types/props'
 
 const stringMatching = (option: Option, searchQuery: string) => {
     const query = searchQuery.toLowerCase()

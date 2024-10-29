@@ -8,9 +8,9 @@
         "build": "vue-tsc -b && vite build",
         "preview": "vite preview"
     },
-    "main": "./dist/quick-shortcuts.umd.cjs",
-    "module": "./dist/quick-shortcuts.js",
-    "types": "/dist/index.d.ts",
+    "main": "dist/quick-shortcuts.umd.cjs",
+    "module": "dist/quick-shortcuts.es.js",
+    "types": "dist/types/index.d.ts",
     "files": [
         "dist",
         "README.md"
@@ -25,7 +25,7 @@
             "require": "./dist/style.css"
         }
     },
-    "dependencies": {
+    "peerDependencies": {
         "vue": "^3.5.10",
         "vue-virtual-scroller": "2.0.0-beta.8"
     },
@@ -38,6 +38,7 @@
         "tslib": "^2.8.0",
         "typescript": "^5.5.3",
         "vite": "^5.4.8",
+        "vite-plugin-dts": "^4.3.0",
         "vue-tsc": "^2.1.6"
     }
 }

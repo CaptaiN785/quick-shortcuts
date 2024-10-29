@@ -3,10 +3,10 @@ import { computed, HTMLAttributes, ref, useTemplateRef, watch } from 'vue'
 import SearchInput from './searchInput/index.vue'
 import Title from './Title.vue'
 import { defaultStyle } from './constants'
-import { SearchAlgoType, TitleStyle } from './types/props'
-import { Option } from './types/options'
+import { SearchAlgoType, TitleStyle } from '../../types/props'
+import { Option } from '../../types/options'
 import Options from './options/index.vue'
-import { StyleProp } from './types'
+import { StyleProp } from '../../types/styles'
 
 const searchQuery = ref<string>('')
 const qsOptionRef = useTemplateRef('qsOptionRef')

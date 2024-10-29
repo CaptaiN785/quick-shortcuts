@@ -7,10 +7,10 @@ import {
     watch,
     defineEmits,
 } from 'vue'
-import { Option } from '../types/options'
+import { Option } from '../../../types/options'
 import OptionItem from './OptionItem.vue'
 import { isOptionValid } from '../composables/SearchFunctions'
-import { SearchAlgoType } from '../types/props'
+import { SearchAlgoType } from '../../../types/props'
 // @ts-ignore
 import { RecycleScroller } from 'vue-virtual-scroller'
 import 'vue-virtual-scroller/dist/vue-virtual-scroller.css'

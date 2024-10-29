@@ -1,4 +1,4 @@
-import { Style } from './types'
+import { Style } from '../../types/styles'
 
 export const defaultStyle: Style = {
     // Main dialog/modal
