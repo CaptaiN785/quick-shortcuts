@@ -12,6 +12,9 @@ dist
 dist-ssr
 pnpm-lock.yaml
 *.local
+doc/.vitepress/dist
+doc/.vitepress/cache
+
 
 # Editor directories and files
 .idea

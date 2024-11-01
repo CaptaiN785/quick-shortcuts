@@ -1,5 +1,7 @@
 # Installation
 
+---
+
 Setup a Vue 3 projects
 
 Install `quick-shortcuts` with npm
@@ -60,6 +62,7 @@ const options = computed<Option[]>(() => [
             },
         ],
     },
+	...
 ]
 </script>
 
@@ -74,3 +77,7 @@ const options = computed<Option[]>(() => [
 Basic setup is done.
 
 _Press `ctrl` + `k`_ for popup to appear. `k` is default key for shortcuts to trigger.
+
+## Output
+
+![](/qs.png)
