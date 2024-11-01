@@ -54,6 +54,8 @@ const allOptions = computed<Option[]>(() => {
     }, [])
 })
 
+const isEmptyList = computed<boolean>(() => !allOptions.value.length)
+
 function upArrowPressed() {
     hoveredItem.value = Math.max(hoveredItem.value - 1, 0)
 }
@@ -139,6 +141,7 @@ watch(allOptionsLength, (newVal, oldVal) => {
             </template>
             <template #empty>
                 <div
+                    v-if="isEmptyList"
                     class="qs-no-results"
                     :style="{ color: optionsStyle.optionTextColor }"
                 >

@@ -13,11 +13,13 @@ const {
     customStyles = defaultStyle,
     activationKey = 'k',
     options,
+    dialogTitle = 'Shortcuts',
 } = defineProps<{
     searchAlgoType?: SearchAlgoType
     customStyles?: StyleProp
     activationKey?: string
     options: Option[]
+    dialogTitle?: string
 }>()
 
 function keyboardListeners(e: KeyboardEvent) {
@@ -66,6 +68,7 @@ function selectOption(option: Option) {
         :options="options"
         :searchAlgoType="searchAlgoType"
         :customStyles="customStyles"
+        :dialogTitle="dialogTitle"
         @select="selectOption"
     />
 </template>
