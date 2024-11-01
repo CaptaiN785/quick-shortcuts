@@ -1,12 +1,15 @@
 {
     "name": "quick-shortcuts",
     "private": false,
-    "version": "1.0.8",
+    "version": "1.0.9",
     "type": "module",
     "scripts": {
         "dev": "vite",
         "build": "vue-tsc -b && vite build",
-        "preview": "vite preview"
+        "preview": "vite preview",
+        "docs:dev": "vitepress dev doc",
+        "docs:build": "vitepress build doc",
+        "docs:preview": "vitepress preview doc"
     },
     "main": "dist/quick-shortcuts.umd.cjs",
     "module": "dist/quick-shortcuts.es.js",
@@ -26,20 +29,18 @@
             "require": "./dist/style.css"
         }
     },
-    "peerDependencies": {
+    "dependencies": {
         "vue": "^3.5.10",
         "vue-virtual-scroller": "2.0.0-beta.8"
     },
     "devDependencies": {
-        "@rollup/plugin-typescript": "^12.1.1",
         "@types/node": "^22.8.1",
         "@vitejs/plugin-vue": "^5.1.4",
-        "path": "^0.12.7",
         "prettier": "^3.3.3",
-        "tslib": "^2.8.0",
         "typescript": "^5.5.3",
         "vite": "^5.4.8",
         "vite-plugin-dts": "^4.3.0",
+        "vitepress": "^1.4.3",
         "vue-tsc": "^2.1.6"
     }
 }
