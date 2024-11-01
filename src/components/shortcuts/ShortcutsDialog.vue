@@ -30,7 +30,7 @@ const emit = defineEmits<{
 
 // Styles
 const dialogStyles = computed<HTMLAttributes['style']>(() => ({
-    backgroundColor: customStyles.dialogColor,
+    backgroundColor: customStyles.dialogColor ?? defaultStyle.dialogColor,
     boxShadow: `0 0 12px 4px ${customStyles.dialogShadowColor ?? defaultStyle.dialogShadowColor}`,
     borderRadius:
         customStyles.dialogBorderRadius ?? defaultStyle.dialogBorderRadius,
