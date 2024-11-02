@@ -20,7 +20,9 @@ import 'quick-shortcuts/dist/style.css'
 
 **App.vue**
 
-```vue{5-43,48}
+::: code-group
+
+```vue{5-43,48}[Typescript]
 <script setup lang="ts">
 import { computed } from "vue";
 import OptionIcon from "./components/OptionIcon.vue";
@@ -62,17 +64,71 @@ const options = computed<Option[]>(() => [
             },
         ],
     },
-	...
-]
+])
 </script>
 
 <template>
     <div>
-        <h2>Quick shortcuts tutorial</h2>
+        <h2>Quick shortcuts tutorial with typescript</h2>
         <Shortcuts :options="options" />
     </div>
 </template>
 ```
+
+```vue{5-42,48}[Javascript]
+<script setup>
+import { computed } from "vue";
+import OptionIcon from "./components/OptionIcon.vue";
+
+import { Shortcuts } from "quick-shortcuts";
+import "quick-shortcuts/dist/style.css";
+
+const options = computed(() => [
+    {
+        id: 1,
+        title: "File",
+        description: "File operations",
+        icon: OptionIcon,
+        isVisible: true,
+        isDisabled: false,
+        onSelect: () => alert("File selected"),
+        children: [
+            {
+                id: 11,
+                title: "New File",
+                suffixText: "Create a new file",
+                isVisible: true,
+                onSelect: () => alert("New File selected"),
+            },
+            {
+                id: 12,
+                title: "Open File",
+                suffixText: "Open an existing file",
+                isVisible: true,
+                onSelect: () => alert("Open File selected"),
+            },
+            {
+                id: 13,
+                title: "Save File",
+                suffixText: "Save current progress",
+                isVisible: true,
+                icon: OptionIcon,
+                onSelect: () => alert("Save File selected"),
+            },
+        ],
+    },
+]);
+</script>
+
+<template>
+    <div>
+        <h2>Vue 3 Javascript tutorial</h2>
+        <Shortcuts :options="options" />
+    </div>
+</template>
+```
+
+:::
 
 Basic setup is done.
 

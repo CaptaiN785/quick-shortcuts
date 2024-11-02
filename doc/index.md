@@ -9,10 +9,7 @@ hero:
     image: /interactive.png
     actions:
         - theme: brand
-          text: Demo
-          link: /markdown-examples
-        - theme: alt
-          text: API docs
+          text: Quick start
           link: /api-docs/quick-start
 
 features:

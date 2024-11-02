@@ -1,4 +1,4 @@
-# Shortcut
+# Shortcuts
 
 **Import component**
 
@@ -102,6 +102,10 @@ function optionSelected(option: Option) {
     console.log('Selected option: ', option)
 }
 ```
+
+### Labelled image
+
+![Labelled image](/labelled.png)
 
 ### Search algorithm
 

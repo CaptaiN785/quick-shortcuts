@@ -37,6 +37,12 @@ export default defineConfig({
                 link: 'https://github.com/CaptaiN785/quick-shortcuts',
             },
         ],
+        search: {
+            provider: 'local',
+            options: {
+                detailedView: 'auto',
+            },
+        },
     },
     base: '/quick-shortcuts/',
 })

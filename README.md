@@ -1,6 +1,8 @@
-# Installation
+# Quick start ([Documentation](https://captain785.github.io/quick-shortcuts/))
 
-Setup a Vue 3 projects
+[**_Go to complete documentation_**](https://captain785.github.io/quick-shortcuts/)
+
+Setup a Vue 3 ( + typescript) projects
 
 Install `quick-shortcuts` with npm
 
@@ -60,7 +62,7 @@ const options = computed<Option[]>(() => [
             },
         ],
     },
-]
+])
 </script>
 
 <template>
